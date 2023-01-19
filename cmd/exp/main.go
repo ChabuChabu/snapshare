@@ -7,12 +7,7 @@ import (
 
 type User struct {
 	Name string
-	Age  int
-	Meta UserMeta
-}
-
-type UserMeta struct {
-	Visits int
+	Bio  string
 }
 
 func main() {
@@ -20,18 +15,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-
-	// user := struct {
-	// 	Name string
-	// }{
-	// 	Name: "Chabu Chabu",
-	// }
 	user := User{
 		Name: "Chabu Chabu",
-		Age:  34,
-		Meta: UserMeta{
-			Visits: 4,
-		},
+		Bio:  `<script>alert("Haha, you have been h4x0r3d!");</script>`,
 	}
 
 	err = t.Execute(os.Stdout, user)
